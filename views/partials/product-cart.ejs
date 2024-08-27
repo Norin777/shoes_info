@@ -1,0 +1,27 @@
+<div class="card">
+    <img src="<%= product.img %>" class="card-img" alt="....">
+    <div class="card-body">
+        <h5 class="card-title">
+            <%= product.name %>
+        </h5>
+        <div class="product-description">
+            <p class="card-text">
+                <%= product.description %>
+            </p>
+            <div class="product-info-btns">
+                <button 
+                type="button" class="view-detail"
+                onclick="viewDetails('<%= product._id %>')">
+                    View
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function viewDetails(productId) {
+        window.location.href = `/product-detail?id=${productId}`;
+    }
+</script>

@@ -1,0 +1,16 @@
+<%- include('partials/header') %>
+    <%- include('partials/nav')  %>
+    <h1>This is Home</h1>
+    <h3>
+        <%= welcomeString %>
+    </h3>
+
+<% if (!locals.user) { %>
+    <a href="/login">sign up</a>
+    <% } else { %>
+     hi <%= user.username %>
+ 
+<% } %>
+
+    <%- include('partials/footer')%>
+

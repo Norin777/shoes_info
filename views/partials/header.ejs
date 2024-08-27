@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= page_title || "GG" %></title>
+    
+    <style>
+    /* General Navbar Styling */
+
+</style>
+<link rel="stylesheet" href="/static/products.css">
+</head>
+<body>
+    <h1>Hello</h1>
+    <nav class="custom-navbar">
+        <div class="container-fluid">
+          <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active custom-nav-link" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link custom-nav-link" href="/products">Products</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle custom-nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Contact Us
+                </a>
+                <ul class="dropdown-menu custom-dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Feedback</a></li>
+                  <li><a class="dropdown-item" href="#">Careers</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Contact Sales</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+
+        <% if (page_title==="products") { %>
+       <form class="search" id="search_bar">
+        <input type="search" name="search" id="search">
+        <button class="search" type="submit">Search</button>
+       </form>
+      <% } %>
+      </nav>
+      
+      <% if (!locals.user) { %>
+        <a id="login-btn" class="btn btn-outline-success" href=""></a>
+        <% } else { %>
+         <% if (user.role =="admin") { %>
+                <a name="" id="" class="btn btn-primary" href="add-product">Welcome Admin</a>
+         <% } %>
+         <a href="/logout" role="button">Logout</a>
+         <br>
+         Hi, <%= user.username %>
+    <% } %>
+    
+</body>
+</html>
